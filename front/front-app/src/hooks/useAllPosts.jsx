@@ -13,10 +13,9 @@ export const useAllPosts = () => {
       .get("https://jsonplaceholder.typicode.com/posts")
       .then((res)=>{
         setPosts(res.data)
-        console.log(res.data.length)
       })
       .catch(()=>{
-        showMessage({title: "ユーザー取得に失敗しました", status: "error"})
+        showMessage({title: "データー取得に失敗しました", status: "error"})
       })
       .finally(()=> {
         setLoading(false)
