@@ -1,14 +1,28 @@
 import { Image } from "@chakra-ui/image";
 import { Box, Center, Flex, Grid, Stack, Text } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
-import React,{memo, useEffect} from "react";
+import React,{memo, useEffect, useState} from "react";
+import Pagination from '@material-ui/lab/Pagination';
+
 import useAllPosts from "../../../hooks/useAllPosts";
 import PostCard from "../../organisms/post/PostCard";
 
 
-export const Posts = memo(()=> {
+export const Posts = memo((props)=> {
   const { getPosts, loading, posts} = useAllPosts()
   useEffect(()=> getPosts(), [])
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage] = useState(10);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+  const changeCurrentPage = (e, page) => setCurrentPage(page)
+
   return(
     <>
       {loading ? (
@@ -16,16 +30,25 @@ export const Posts = memo(()=> {
           <Spinner />
         </Center>
       ):(
-        <Grid m={{base: 3, md: 5}}>
-          { posts.map((post) => (
-            <PostCard 
-              key={post.id}
-              image="https://source.unsplash.com/random" 
-              name={post.userId}
-              title={post.title}
-            />
-          ))}
-        </Grid>
+        <>
+          <Grid m={{base: 3, md: 10}}>
+            { currentPosts.map((post) => (
+              <PostCard 
+                key={post.id}
+                image="https://source.unsplash.com/random" 
+                name={post.userId}
+                title={post.title}
+              />
+            ))}
+          </Grid>
+          <Grid m={{base: 3, md: 10}}>
+            <Pagination 
+              count={pageNumbers.length}
+              onChange={changeCurrentPage}
+              page={currentPage}
+              />
+          </Grid>
+        </>
       )}
     </>
   );
