@@ -1,5 +1,4 @@
-import { Image } from "@chakra-ui/image";
-import { Box, Center, Flex, Grid, Stack, Text } from "@chakra-ui/layout";
+import { Center, Grid } from "@chakra-ui/layout";
 import { Spinner } from "@chakra-ui/spinner";
 import React,{memo, useEffect, useState} from "react";
 import Pagination from '@material-ui/lab/Pagination';
@@ -26,23 +25,24 @@ export const Posts = memo((props)=> {
   return(
     <>
       {loading ? (
-        <Center h="100vh">
+        <Center h="100vh" w="100vh">
           <Spinner />
         </Center>
       ):(
         <>
-          <Grid m={{base: 3, md: 10}}>
+          <Grid mb={{base: 3, md: 10}}>
             { currentPosts.map((post) => (
               <PostCard 
                 key={post.id}
                 image="https://source.unsplash.com/random" 
                 name={post.userId}
                 title={post.title}
+                postId={post.id}
               />
             ))}
           </Grid>
-          <Grid m={{base: 3, md: 10}}>
-            <Pagination 
+          <Grid>
+            <Pagination
               count={pageNumbers.length}
               onChange={changeCurrentPage}
               page={currentPage}
