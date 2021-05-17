@@ -1,10 +1,10 @@
 import React, { memo, useCallback } from 'react'
-import {Flex, Heading, Text, Box, Link, Icon, useDisclosure} from "@chakra-ui/react"
-import { EditIcon, BellIcon } from '@chakra-ui/icons'
+import {Flex, Heading, Text, Box, useDisclosure} from "@chakra-ui/react"
 import { useHistory } from "react-router-dom"
 
 import MenuIconButton from '../../atoms/button/MenuIconButton';
 import MenuDrawer from '../../molecules/MenuDrawer';
+import SearchForm from '../../molecules/SearchForm';
 
 export const Header = memo(()=> {
   const {isOpen, onOpen, onClose} = useDisclosure();
@@ -32,10 +32,11 @@ export const Header = memo(()=> {
           </Flex>
           <Text as="p"  fontSize={{ base: "sm", md: "md"}} >COVID-19に関連する会計、税務情報サイト</Text>
         </Box>
-        <Flex display={{base: "none", lg: "flex"}}>
-          <Link pr="4" fontSize={{ base: "md", md: "lg"}} onClick={onClickNewPost}><Icon as={EditIcon} mr="1" align="center" />新規投稿</Link>
+        <Flex display={{base: "none", lg: "flex"}} mr={{base:0, xl: 7}}>
+          {/* <Link pr="4" fontSize={{ base: "md", md: "lg"}} onClick={onClickNewPost}><Icon as={EditIcon} mr="1" align="center" />新規投稿</Link>
           <Link pr="4" fontSize={{ base: "md", md: "lg"}} onClick={onClickNotification}><Icon as={BellIcon} mr="1" align="center" />通知</Link>
-          <Link pr="10" fontSize={{ base: "md", md: "lg"}} onClick={onClickMyPage}>マイページ</Link>
+          <Link pr="10" fontSize={{ base: "md", md: "lg"}} onClick={onClickMyPage}>マイページ</Link> */}
+          <SearchForm />
         </Flex>
         <MenuIconButton onOpen={onOpen}/>
       </Flex>

@@ -1,36 +1,43 @@
 import React, { memo } from 'react'
 import { Image } from '@chakra-ui/image'
-import { Box, Flex, Grid, Text } from '@chakra-ui/layout'
+import { Flex } from '@chakra-ui/layout'
+import {Link} from "react-router-dom"
 
 export const PostCard = memo((props)=> {
-  const {image, name, title} = props 
+  const {image, name, title, postId} = props 
   return (
-    <Box h={{base: "150px", md: "200px"}} bg="white" borderRadius="10px" shadow="md" maxW="1000px" m={{base: 2, md: 4}}>
+    <Flex 
+      h={{base: "150px", md: "200px"}} 
+      bg="white" 
+      borderRadius="10px" 
+      shadow="md" maxW="1000px" 
+      m={{base: 2, md: 4}}
+    >
       <Flex>
-        <Box as="a" _hover={{cursor: "pointer"}}>
-          <Image 
+        <Link to={`post/${postId}`}>
+         <Image 
             boxSize={{base: "100px", md: "160px"}}
             alt={title} 
             m="5"
             borderRadius="5px"
             src={image}
           />
-        </Box>
-        <Flex flexFlow="column" justify="space-between" m="5" w="80%">
-          <Flex as="a" _hover={{cursor: "pointer"}}>
-            <Text fontSize={{base: "md", md: "x-large"}}>{title}</Text>
+        </Link>
+      </Flex>
+      <Flex flexFlow="column" justify="space-between" m="5" w="80%">
+        <Flex fontSize={{base: "md", md: "x-large"}}>
+          <Link to={`post/${postId}`}>{title}</Link>
+        </Flex>
+        <Flex justify="space-between" fontSize={{base: "sm", md: "md"}}>
+          <Flex>
+            <Link>{name}</Link>
           </Flex>
-          <Flex justify="space-between" fontSize={{base: "sm", md: "md"}}>
-            <Flex as="a" _hover={{cursor: "pointer"}}>
-              <Text >{name}</Text>
-            </Flex>
-            <Flex>
-              <Text>投稿日時xx/yy/zz</Text>
-            </Flex>
+          <Flex>
+            <Link>投稿日時xx/yy/zz</Link>
           </Flex>
         </Flex>
       </Flex>
-    </Box>
+    </Flex>
   )
 })
 

@@ -13,7 +13,7 @@ export const PostRoutes = [
     children: <Posts />
   },
   {
-    path: "/show",
+    path: "/:id",
     exact: false,
     children: <ShowPost />
   },
@@ -23,7 +23,7 @@ export const PostRoutes = [
     children: <NewPost />
   },
   {
-    path: "/edit",
+    path: "/:id/edit",
     exact: false,
     children: <EditPost />
   },
