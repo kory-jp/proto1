@@ -30,12 +30,9 @@ export const Header = memo(()=> {
           <Flex as="a" align="center" _hover={{cursor: "pointer"}} onClick={onClickHome}>
             <Heading as="h1" fontSize={{ base: "md", md: "2xl"}} fontFamily="Newsreader">COVID-TAX</Heading>
           </Flex>
-          <Text as="p"  fontSize={{ base: "sm", md: "md"}} >COVID-19に関連する会計、税務情報サイト</Text>
+          <Text as="p"  fontSize={{ base: "xx-small", md: "md"}} >COVID-19に関連する会計、税務情報サイト</Text>
         </Box>
         <Flex display={{base: "none", lg: "flex"}} mr={{base:0, xl: 7}}>
-          {/* <Link pr="4" fontSize={{ base: "md", md: "lg"}} onClick={onClickNewPost}><Icon as={EditIcon} mr="1" align="center" />新規投稿</Link>
-          <Link pr="4" fontSize={{ base: "md", md: "lg"}} onClick={onClickNotification}><Icon as={BellIcon} mr="1" align="center" />通知</Link>
-          <Link pr="10" fontSize={{ base: "md", md: "lg"}} onClick={onClickMyPage}>マイページ</Link> */}
           <SearchForm />
         </Flex>
         <MenuIconButton onOpen={onOpen}/>

@@ -2,6 +2,7 @@
 
 # dependencies
 front/front-app/node_modules
+front/node_modules/
 front/front-app//.pnp
 front/front-app/.pnp.js
 

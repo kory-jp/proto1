@@ -27,7 +27,7 @@ export const DefaultLayout = memo((props)=> {
             <SideBar />
           </Box>
         </Box>
-        <Box>
+        <Box minH="100vh" maxW="100%" m={{base: "auto", lg: "unset"}}>
         {children}
         </Box>
       </Flex>
