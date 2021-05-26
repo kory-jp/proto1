@@ -1,25 +1,18 @@
 import React from 'react';
-import DMUser from '../components/pages/user/DMUser';
-import ShowUser from '../components/pages/user/ShowUser';
-import Users from '../components/pages/user/Users';
+import TopUsers from '../components/pages/users/TopUsers';
 
 
 export const UserRoutes = [
   {
-    path: "/",
+    path: "/:id",
     exact: true,
-    children: <Users />
+    children: <TopUsers />
   },
-  {
-    path: "/show",
-    exact: false,
-    children: <ShowUser />
-  },
-  {
-    path: "/dm",
-    exact: false,
-    children: <DMUser />
-  }
+  // {
+  //   path: "/:id/dm",
+  //   exact: false,
+  //   children: <DMUser />
+  // }
 ]
 
 export default UserRoutes

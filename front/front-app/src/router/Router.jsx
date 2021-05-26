@@ -6,6 +6,7 @@ import Login from '../components/pages/Login'
 import New from '../components/pages/New'
 import Page404 from '../components/pages/Page404'
 import Questions from '../components/pages/Questions'
+import TopUsers from '../components/pages/users/TopUsers'
 import DefaultLayout from '../components/templates/DefaultLayout'
 import { MyPageRoutes } from './MyPageRoutes'
 import PostRoutes from './PostRoutes'
@@ -31,7 +32,7 @@ export const Router = memo(()=> {
           ))}
         </Switch>
       )}/>
-      <Route path="/userId" render={({match: {url}})=> (
+      <Route path="/user" render={({match: {url}})=> (
         <Switch >
           {MyPageRoutes.map((route)=> (
             <Route key={route.children} exact={route.exact} path={`${url}${route.path}`}>
@@ -40,15 +41,11 @@ export const Router = memo(()=> {
           ))}
         </Switch>
       )}/>
-      <Route path="/users" render={({match: {url}})=> (
-        <Switch >
-          {UserRoutes.map((route)=> (
-            <Route key={route.children} exact={route.exact} path={`${url}${route.path}`}>
-              {route.children}
-            </Route>
-          ))}
-        </Switch>
-      )}/>
+      <Route path="/users/:id">
+        <DefaultLayout>
+          <TopUsers />
+        </DefaultLayout>
+      </Route>
       <Route exact path="/contact">
         <Contact />
       </Route>

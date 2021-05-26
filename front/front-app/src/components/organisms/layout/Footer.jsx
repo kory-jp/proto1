@@ -18,7 +18,7 @@ export const Footer = memo(()=> {
       fontWeight="bold"
       >
       <Flex>
-        <Flex flexFlow="column">
+        <Flex flexFlow="column" fontSize={{base: "sm", lg: "md"}}>
           <Link mt="2">サイトQ&A</Link>
           <Link mt="2">お問合せ</Link>
           <Link mt="2">ホーム</Link>

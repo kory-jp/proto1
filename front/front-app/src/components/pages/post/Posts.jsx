@@ -25,7 +25,7 @@ export const Posts = memo((props)=> {
   return(
     <>
       {loading ? (
-        <Center h="100vh" w="100vh">
+        <Center h="100vh" w={{base: "50vh", md: "100vh"}}>
           <Spinner />
         </Center>
       ):(
@@ -35,9 +35,7 @@ export const Posts = memo((props)=> {
               <PostCard 
                 key={post.id}
                 image="https://source.unsplash.com/random" 
-                name={post.userId}
-                title={post.title}
-                postId={post.id}
+                post={post}
               />
             ))}
           </Grid>

@@ -10,7 +10,9 @@ export const SideButton = memo((props)=> {
     fontSize="lg"
     color="gray.600"
     bg="white"
-    textAlign="center"
+    border="thin"
+    borderStyle="groove"
+    borderBottomColor="telegram.400"
     _hover={{background: "gray.300"}}
     >
     {children}
