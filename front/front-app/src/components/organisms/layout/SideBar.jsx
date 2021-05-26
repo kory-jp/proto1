@@ -8,9 +8,7 @@ export const SideBar = memo(()=> {
     <Flex
       as="aside"
       h="3xl"
-      w="100%"
       bg="white"
-      w=""
       w={{base: 72, xl: 80}}
       shadow="md"
       borderRadius="3xl"

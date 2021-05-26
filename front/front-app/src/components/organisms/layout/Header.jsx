@@ -7,6 +7,7 @@ import MenuDrawer from '../../molecules/MenuDrawer';
 import SearchForm from '../../molecules/SearchForm';
 
 export const Header = memo(()=> {
+  // Drawerを開閉を認識するChakra-uiのカスタムhooks
   const {isOpen, onOpen, onClose} = useDisclosure();
   const history = useHistory();
 

@@ -3,7 +3,7 @@ import { Image } from '@chakra-ui/image';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 
 export const UserCard  = memo((props)=> {
-  const {name, email, hello} = props
+  const {name, email} = props
   return(
     <Box bg="white" p="3" shadow="md" borderRadius="lg" w={{base: "unset", lg: "2xl", xl: "5xl"}}>
       <Flex>
