@@ -1,19 +1,14 @@
-import React, { memo, useContext, useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import { Image } from '@chakra-ui/image'
 import { Flex, Text } from '@chakra-ui/layout'
 import {Link} from "react-router-dom"
 import useUserInfo from '../../../hooks/useUserInfo'
-import { UsersContext } from '../../../providers/UsersProvider'
 
 export const PostCard = memo((props)=> {
   const {image, post} = props 
   const userId = post.userId;
   const {getUserInfo, userInfo} = useUserInfo(userId);
   useEffect(()=> getUserInfo(),[])
-  const { setUsersProviderInfo } = useContext(UsersContext);
-  const onCLickSetUsersInfo = () => {
-    setUsersProviderInfo({userInfo});
-  }
 
   return (
     <Flex 
@@ -42,8 +37,7 @@ export const PostCard = memo((props)=> {
         </Flex>
         <Flex flexFlow={{base: "column", md: "wrap"}} justify={{base: "flex-end", md: "space-between"}} fontSize={{base: "xs", md: "md"}}>
           <Flex>
-            {/* <Link to={{ pathname: `users/${post.userId}`, state: userInfo}}>{userInfo.name}</Link> */}
-            <Link to={`users/${post.userId}`} onClick={onCLickSetUsersInfo}>{userInfo.name}</Link>
+            <Link to={{ pathname: `users/${post.userId}`, state: userInfo}}>{userInfo.name}</Link>
           </Flex>
           <Flex>
             <Text>投稿日時xx/yy/zz</Text>

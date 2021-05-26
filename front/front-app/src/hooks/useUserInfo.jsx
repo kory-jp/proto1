@@ -20,7 +20,7 @@ export const useUserInfo = (userId) => {
       .finally(()=> {
         setLoading(false)
       })
-  },[])
+  },[showMessage, userId])
   return { getUserInfo, loading, userInfo }
 }
 

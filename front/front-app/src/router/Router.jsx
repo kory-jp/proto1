@@ -10,7 +10,6 @@ import TopUsers from '../components/pages/users/TopUsers'
 import DefaultLayout from '../components/templates/DefaultLayout'
 import { MyPageRoutes } from './MyPageRoutes'
 import PostRoutes from './PostRoutes'
-import { UserRoutes } from './UserRoutes'
 
 export const Router = memo(()=> {
   return(

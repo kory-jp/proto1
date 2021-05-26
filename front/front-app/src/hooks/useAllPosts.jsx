@@ -20,7 +20,7 @@ export const useAllPosts = () => {
       .finally(()=> {
         setLoading(false)
       })
-  },[])
+  },[showMessage])
   return { getPosts, loading, posts }
 }
 
